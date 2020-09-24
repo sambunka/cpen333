@@ -142,12 +142,14 @@
   <ItemGroup>
     <ClCompile Include="CBulb.cpp" />
     <ClCompile Include="CLamp3Bulb.cpp" />
+    <ClCompile Include="CPullLamp.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CSwitch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CBulb.h" />
     <ClInclude Include="CLamp3Bulb.h" />
+    <ClInclude Include="CPullLamp.h" />
     <ClInclude Include="CSwitch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -27,6 +27,9 @@
     <ClCompile Include="CLamp3Bulb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CPullLamp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CBulb.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CLamp3Bulb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CPullLamp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

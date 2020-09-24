@@ -2,8 +2,8 @@
 
 using namespace std;
 #pragma once
-#ifndef   __CBulb__
-#define   __CBulb__
+#ifndef   __CSwitch__
+#define   __CSwitch__
 
 // code for your CBulb class
 class CSwitch {

@@ -17,7 +17,7 @@ CBulb::CBulb() {
 
 
 CBulb::~CBulb() {
-	cout << "Turning off bulb (destructor)...\n";
+	cout << "CBulb destructor being called...\n";
 }
 
 void CBulb::print(void) {

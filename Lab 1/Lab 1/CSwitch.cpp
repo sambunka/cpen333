@@ -9,7 +9,7 @@ CSwitch::CSwitch() {
 }
 
 CSwitch::~CSwitch() {
-	cout << "Turning off bulb (destructor)...\n";
+	cout << "CSwitch destructor being called...\n";
 }
 
 void CSwitch::print(void) {
