@@ -1,2 +1,6 @@
 *.bak*
 *.lck*
+*.sln
+*.vcxproj*
+**/.vs
+**/debug
