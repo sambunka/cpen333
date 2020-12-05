@@ -72,20 +72,47 @@ void display_student_menu(){
 	
 	cout << "Welcome Student!\n";
 	cout << "Please select from the following options:\n";
-	cout << "Press 1 to enter your program rankings\n";
-	cout << "Press 2 to enter your personal statement\n";
-	cout << "Press ~ to log out any time\n";
+	cout << "Press 1 to update your program rankings\n";
+	cout << "Press 2 to update your personal statement\n";
+	cout << "Press 9 to log out\n";
 	
 	int select_menu_option;
+	cin >> select_menu_option;
 	
-	if(select_menu_option == 1){
-		input_rankings();
-	} else if (select_menu_option == 2){
-		input_statement();
-	} else if (select_menu_option == '~'){
-		cout << "You are being logged out...\n";
-		return;
-	} else {}
+	while(1){
+		if(select_menu_option == 1){
+			cout << "Please enter a value between 1 and 13 indicating your preference for the selected program:\n\n";
+			cout << "Civil Engineering: ";
+			cin >> ranking[0];
+			cout << "\nBiomedical Engineering: ";
+			cin >> ranking[1];
+			cout << "\nElectrical Engineering: ";
+			cin >> ranking[2];
+			cout << "\nEngineering Physics: ";
+			cin >> ranking[3];
+		} else if (select_menu_option == 2){
+			cout << "Please enter your personal statement:\n";
+			cin >> statement;
+		} else if (select_menu_option == 9){
+			cout << "You are being logged out...\n";
+			return;
+		} else {}
+		
+		cout << "Press 0 to view menu options again or press 9 to log out.\n";
+		cin >> select_menu_option;
+		
+		if(select_menu_option == 0){
+				cout << "Press 1 to update your program rankings\n";
+				cout << "Press 2 to update your personal statement\n";
+				cout << "Press 9 to log out\n";
+				cin >> select_menu_option;
+		} else if(select_menu_option == 9){
+			cout << "You are being logged out...\n";
+			return;
+		} else {
+			
+		}
+	}
 	
 	"You are being logged out...\n";
 	
