@@ -20,6 +20,16 @@ private:
 	
 	program_capacity program_capacities[13];
 	
+	typedef struct unscored_statements{
+		statement_struct statement;
+		struct unscored_statements * next;
+		
+	}
+	
+	unscored_statements * head;
+	
+	//vector<statement_struct> unscored_statements;
+	
 public:
 	bool login(string username, string password);
 	int selectStudent(string studentNumber);
@@ -28,9 +38,6 @@ public:
 	int startAdvanceStudents();
 	string checkStanding(student);
 	
-	void display_student_menu();
-	void input_ranking(); // displays program names sequentially and requests student ranking 
-	void input_statement();
 	int update_unscored_statements(); // returns number of unscored statements
 	int score_statements(); // uses update_unscored_statements() and returns number of unscored statements 
 
@@ -46,7 +53,8 @@ class student
 private: 
 	int ranking[13];
 	string statement;
-	int statement score;
+	int statement_score;
+	int student_number;
 	
 	typedef struct grade_data{
 		string course;
@@ -59,10 +67,8 @@ private:
 public:
 	void setStanding(string course, string standing);
 	void notifyStudent(string message);
-	
-	void update_ranking(int &ranking[13]);
-	void update_statement(string statement);
 	void update_statement_score();
+	void display_student_menu();
 	
 };
 
@@ -90,9 +96,15 @@ void display_student_menu(){
 			cin >> ranking[2];
 			cout << "\nEngineering Physics: ";
 			cin >> ranking[3];
+			// ... and other programs
 		} else if (select_menu_option == 2){
 			cout << "Please enter your personal statement:\n";
 			cin >> statement;
+			
+			if(
+
+			unscored_statements.push_back (statement);
+			
 		} else if (select_menu_option == 9){
 			cout << "You are being logged out...\n";
 			return;
@@ -123,7 +135,7 @@ void display_admin_menu(){
 	cout << "Welcome Administrator!\n";
 	cout << "Please select from the following options:\n";
 	cout << "Press 1 to score personal statements\n";
-	cout << "Press ~ to log out any time\n";
+	cout << "Press 9 to log out\n";
 	
 	int select_menu_option;
 	int unscored_statements;
@@ -131,8 +143,7 @@ void display_admin_menu(){
 	
 		if(select_menu_option == 1){
 			score_statements(); // score_statements is a loop
-			
-		} else if (select_menu_option = '~') {
+		} else if (select_menu_option = 9) {
 			cout << "You are being logged out...\n";
 			return;
 		} else {}
