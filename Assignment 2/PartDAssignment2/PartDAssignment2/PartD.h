@@ -1,13 +1,21 @@
 #pragma once
+#include <io.h>
 #include <string>
+
+using namespace std;
+
+struct courseInfoStruct
+{
+	string courseName;
+	string studentList[100];
+	float studentGradeList[100];
+};
 
 class system
 {
 private:
-	int displayCourses();
-	int anotherStudent();
-	int anotherCourse();
-	
+	courseInfoStruct currentCourse;
+
 	typedef struct statement_struct{
 		string statement;
 		int score;
@@ -21,6 +29,50 @@ private:
 	program_capacity program_capacities[13];
 	
 public:
+	int anotherStudent()
+	{
+		cout << "Would you like to process another student? (y/n): ";
+		char response;
+		do
+		{
+			cin >> response;
+			if (response == 'y' || response == 'Y')
+				return 1;
+			else if (response = 'N' || response == 'n')
+				return 0;
+			else
+				cout << "Try again" << endl;
+		} while (true);
+	}
+	int anotherCourse()
+	{
+		cout << "Would you like to process another course? (y/n): ";
+		char response;
+		do
+		{
+			cin >> response;
+			if (response == 'y' || response == 'Y')
+				return 1;
+			else if (response = 'N' || response == 'n')
+				return 0;
+			else
+				cout << "Try again" << endl;
+		} while (true);
+	}
+	int selectCourse(int course)
+	{
+		class course mycourse;
+
+		currentCourse = mycourse.courseInfo("");
+
+	}
+	int displayCourses(int currentUser)
+	{
+		cout << "Here are your courses: " << endl;
+		cout << "1: CPEN 333" << endl;
+		cout << "2: CPEN 331" << endl;
+
+	}
 	bool login(string username, string password);
 	int selectStudent(string studentNumber);
 	int editAcceptGrade(float grade);
@@ -57,13 +109,22 @@ private:
 	string login[2]; // login[0] = username, login[1] = password
 	
 public:
-	void setStanding(string course, string standing);
+	void setStanding(string course, string standing)
 	void notifyStudent(string message);
 	
 	void update_ranking(int &ranking[13]);
 	void update_statement(string statement);
 	void update_statement_score();
 	
+};
+
+class course
+{
+private:
+
+public:
+	struct courseInfoStruct courseInfo;
+	courseInfoStruct getCourseInfo(string course);
 };
 
 // System functions
