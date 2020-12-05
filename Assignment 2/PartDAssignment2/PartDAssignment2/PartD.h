@@ -20,6 +20,16 @@ private:
 	
 	program_capacity program_capacities[13];
 	
+	typedef struct unscored_statements{
+		statement_struct statement;
+		struct unscored_statements * next;
+		
+	}
+	
+	unscored_statements * head;
+	
+	//vector<statement_struct> unscored_statements;
+	
 public:
 	bool login(string username, string password);
 	int selectStudent(string studentNumber);
@@ -28,9 +38,6 @@ public:
 	int startAdvanceStudents();
 	string checkStanding(student);
 	
-	void display_student_menu();
-	void input_ranking(); // displays program names sequentially and requests student ranking 
-	void input_statement();
 	int update_unscored_statements(); // returns number of unscored statements
 	int score_statements(); // uses update_unscored_statements() and returns number of unscored statements 
 
@@ -46,7 +53,8 @@ class student
 private: 
 	int ranking[13];
 	string statement;
-	int statement score;
+	int statement_score;
+	int student_number;
 	
 	typedef struct grade_data{
 		string course;
@@ -59,10 +67,8 @@ private:
 public:
 	void setStanding(string course, string standing);
 	void notifyStudent(string message);
-	
-	void update_ranking(int &ranking[13]);
-	void update_statement(string statement);
 	void update_statement_score();
+	void display_student_menu();
 	
 };
 
@@ -72,8 +78,56 @@ void display_student_menu(){
 	
 	cout << "Welcome Student!\n";
 	cout << "Please select from the following options:\n";
-	cout << "Press 1 to enter program rankings\n";
-	cout << "Press 2 to enter personal statement\n";
+	cout << "Press 1 to update your program rankings\n";
+	cout << "Press 2 to update your personal statement\n";
+	cout << "Press 9 to log out\n";
+	
+	int select_menu_option;
+	cin >> select_menu_option;
+	
+	while(1){
+		if(select_menu_option == 1){
+			cout << "Please enter a value between 1 and 13 indicating your preference for the selected program:\n\n";
+			cout << "Civil Engineering: ";
+			cin >> ranking[0];
+			cout << "\nBiomedical Engineering: ";
+			cin >> ranking[1];
+			cout << "\nElectrical Engineering: ";
+			cin >> ranking[2];
+			cout << "\nEngineering Physics: ";
+			cin >> ranking[3];
+			// ... and other programs
+		} else if (select_menu_option == 2){
+			cout << "Please enter your personal statement:\n";
+			cin >> statement;
+			
+			if(
+
+			unscored_statements.push_back (statement);
+			
+		} else if (select_menu_option == 9){
+			cout << "You are being logged out...\n";
+			return;
+		} else {}
+		
+		cout << "Press 0 to view menu options again or press 9 to log out.\n";
+		cin >> select_menu_option;
+		
+		if(select_menu_option == 0){
+				cout << "Press 1 to update your program rankings\n";
+				cout << "Press 2 to update your personal statement\n";
+				cout << "Press 9 to log out\n";
+				cin >> select_menu_option;
+		} else if(select_menu_option == 9){
+			cout << "You are being logged out...\n";
+			return;
+		} else {
+			
+		}
+	}
+	
+	"You are being logged out...\n";
+	
 }
 
 void display_admin_menu(){
@@ -81,7 +135,7 @@ void display_admin_menu(){
 	cout << "Welcome Administrator!\n";
 	cout << "Please select from the following options:\n";
 	cout << "Press 1 to score personal statements\n";
-	cout << "Press ~ to log out any time\n";
+	cout << "Press 9 to log out\n";
 	
 	int select_menu_option;
 	int unscored_statements;
@@ -89,9 +143,8 @@ void display_admin_menu(){
 	
 		if(select_menu_option == 1){
 			score_statements(); // score_statements is a loop
-			
-		} else if (select_menu_option = ~) {
-			display << "You are being logged out...\n";
+		} else if (select_menu_option = 9) {
+			cout << "You are being logged out...\n";
 			return;
 		} else {}
 
